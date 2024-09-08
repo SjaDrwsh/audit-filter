@@ -1,3 +1,6 @@
+![npm version](https://img.shields.io/npm/v/yarn-audit-filter)  ![npm downloads](https://img.shields.io/npm/dt/yarn-audit-filter)
+
+
 # Yarn Audit Filter
 
 `yarn-audit-filter` is a command-line tool that filters `yarn audit` results based on specific advisory IDs. It helps you to identify and handle advisories in your project by allowing you to focus on relevant issues.
