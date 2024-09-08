@@ -1,0 +1,20 @@
+{
+  "name": "yarn-audit-filter",
+  "version": "1.0.0",
+  "description": "A tool to filter yarn audit results based on advisory IDs.",
+  "main": "src/filter-audit.js",
+  "bin": {
+    "filter-audit": "src/filter-audit.js"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "1.0.2"
+  },
+  "devDependencies": {
+    "jest": "29.7.0"
+  }
+}
