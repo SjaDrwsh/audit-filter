@@ -39,10 +39,15 @@ You can also add yarn-audit-filter to your project's scripts in package.json for
 }
 ```
 
+### Yarn Version Support
+
+yarn-audit-filter supports both **Yarn version 1** and **Yarn version 4**. Whether your project is using the classic Yarn (v1) or the modern version (v4), this tool integrates seamlessly with both versions to provide a consistent experience.
+
 ### Summary
 
 - **Global Installation**: Use `npm` or `yarn global add` commands.
 - **Local Installation**: Use `yarn add --dev` and run with `npx` or via `package.json` scripts.
+- **Yarn Support**: Compatible with Yarn 1 and Yarn 4.
 
 This documentation provides users with options for installing `yarn-audit-filter` globally or locally, and also shows how to integrate it into their project’s scripts for easier usage.
 
