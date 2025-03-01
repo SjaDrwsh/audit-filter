@@ -37,29 +37,34 @@ exec('yarn --version', (versionError, versionStdout, versionStderr) => {
        if (yarnVersion.startsWith('1.')) {
            // Yarn 1 script
            lines.forEach((line) => {
-               const json = JSON.parse(line);
+                if(line){
+                    const json = JSON.parse(line);
 
-               const advisoryId = json?.data?.advisory?.github_advisory_id;
-               if (
-                   advisoryId && !advisoryToFilter.some((advisory) => advisoryId?.includes(advisory))
-               ) {
-                   hasAdvisories = true;
-                   advisories.push(json?.data?.advisory);
-               }
+                    const advisoryId = json?.data?.advisory?.github_advisory_id;
+                    if (
+                        advisoryId && !advisoryToFilter.some((advisory) => advisoryId?.includes(advisory))
+                    ) {
+                        hasAdvisories = true;
+                        advisories.push(json?.data?.advisory);
+                    }
+                }
+                    
            });
        } else if (yarnVersion.startsWith('4.')) {
            // Yarn 4 script
            lines.forEach((line) => {
-               const json = JSON.parse(line);
-               const advisoryUrl = json?.children?.URL;
+                if(line){
+                    const json = JSON.parse(line);
+                    const advisoryUrl = json?.children?.URL;
 
-               if (
-                   !advisoryToFilter.some((advisory) => advisoryUrl?.includes(advisory))
-               ) {
-                   hasAdvisories = true;
-                   console.error(`Advisory: ${json?.value}`);
-                   console.error(`Details: ${JSON.stringify(json?.children, null, 2)}`);
-               }
+                    if (
+                        !advisoryToFilter.some((advisory) => advisoryUrl?.includes(advisory))
+                    ) {
+                        hasAdvisories = true;
+                        console.error(`Advisory: ${json?.value}`);
+                        console.error(`Details: ${JSON.stringify(json?.children, null, 2)}`);
+                    }
+                }  
            });
        } else {
            console.error(`Unsupported Yarn version: ${yarnVersion}`);

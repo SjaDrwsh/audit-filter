@@ -1,6 +1,6 @@
 {
   "name": "yarn-audit-filter",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A tool to filter yarn audit results based on advisory IDs. Compatible with Yarn 1 and Yarn 4",
   "main": "src/filter-audit.js",
   "bin": {
