@@ -5,6 +5,7 @@ const { exec } = require('child_process');
 
 const advisoryToFilter = [];
 
+const additionalFlags = process.argv.slice(2).join(' ');
 
 exec('yarn --version', (versionError, versionStdout, versionStderr) => {
    if (versionError) {
@@ -17,7 +18,8 @@ exec('yarn --version', (versionError, versionStdout, versionStderr) => {
    const yarnVersion = versionStdout.trim();
    console.log(`Yarn version: ${yarnVersion}`);
 
-   exec('yarn audit --json', (error, stdout, stderr) => {
+   exec(`yarn audit --json ${additionalFlags}`, (error, stdout, stderr) => {
+    
 
        if (stderr) {
            console.error(`stderr: ${stderr}`);
