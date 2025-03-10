@@ -2,10 +2,18 @@
 
 const { exec } = require('child_process');
 
+const args = process.argv.slice(2);
 
 const advisoryToFilter = [];
+const additionalFlags = [];
 
-const additionalFlags = process.argv.slice(2).join(' ');
+args.forEach(arg => {
+    if(arg.startsWith('GHSA-')){
+        advisoryToFilter.push(arg)
+    } else {
+        additionalFlags.push(arg)
+    }
+});
 
 exec('yarn --version', (versionError, versionStdout, versionStderr) => {
    if (versionError) {
