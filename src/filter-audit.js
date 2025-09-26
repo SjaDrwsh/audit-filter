@@ -26,7 +26,9 @@ exec('yarn --version', (versionError, versionStdout, versionStderr) => {
    const yarnVersion = versionStdout.trim();
    console.log(`Yarn version: ${yarnVersion}`);
 
-   exec(`yarn audit --json ${additionalFlags}`, (error, stdout, stderr) => {
+   const flagsString = additionalFlags.join(' ');
+
+   exec(`yarn audit --json ${flagsString}`, (error, stdout, stderr) => {
     
 
        if (stderr) {

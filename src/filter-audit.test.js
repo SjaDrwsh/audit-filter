@@ -28,4 +28,16 @@ describe('Yarn Audit Filter Script', () => {
     const output = execSync('npx filter-audit').toString();
     expect(output).toContain('No relevant advisories found.');
   });
+
+  test('should handle multiple flags correctly', () => {
+    execSync.mockReturnValue(`
+      Yarn version: 1.22.22
+      No relevant advisories found.
+    `);
+
+    const output = execSync('npx filter-audit --production --deprecated --json').toString();
+    expect(execSync).toHaveBeenCalledWith('npx filter-audit --production --deprecated --json');
+    expect(output).toContain('No relevant advisories found.');
+  });
+
 });
